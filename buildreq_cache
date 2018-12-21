@@ -1,6 +1,6 @@
-0.7.5
-R-xml2
-R-NLP
+0.7.6
 R-BH
-R-slam
+R-NLP
 R-SnowballC
+R-slam
+R-xml2
