@@ -3,6 +3,7 @@ R-BH
 R-NLP
 R-SnowballC
 R-cli
+R-rlang
 R-slam
 R-withr
 R-xml2
