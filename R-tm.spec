@@ -4,22 +4,21 @@
 #
 Name     : R-tm
 Version  : 0.7.6
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/tm_0.7-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/tm_0.7-6.tar.gz
 Summary  : Text Mining Package
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-tm-lib = %{version}-%{release}
-Requires: R-BH
-Requires: R-NLP
-Requires: R-SnowballC
-Requires: R-slam
-Requires: R-xml2
+Requires: R-cli
+Requires: R-withr
 BuildRequires : R-BH
 BuildRequires : R-NLP
 BuildRequires : R-SnowballC
+BuildRequires : R-cli
 BuildRequires : R-slam
+BuildRequires : R-withr
 BuildRequires : R-xml2
 BuildRequires : buildreq-R
 
@@ -42,10 +41,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545405739
+export SOURCE_DATE_EPOCH=1552843272
 
 %install
-export SOURCE_DATE_EPOCH=1545405739
+export SOURCE_DATE_EPOCH=1552843272
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -81,8 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library tm|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  tm || :
 
 
 %files
@@ -120,7 +118,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/tm/help/tm.rdx
 /usr/lib64/R/library/tm/html/00Index.html
 /usr/lib64/R/library/tm/html/R.css
-/usr/lib64/R/library/tm/libs/symbols.rds
 /usr/lib64/R/library/tm/stopwords/SMART.dat
 /usr/lib64/R/library/tm/stopwords/catalan.dat
 /usr/lib64/R/library/tm/stopwords/danish.dat
@@ -137,6 +134,11 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/tm/stopwords/russian.dat
 /usr/lib64/R/library/tm/stopwords/spanish.dat
 /usr/lib64/R/library/tm/stopwords/swedish.dat
+/usr/lib64/R/library/tm/tests/testthat.R
+/usr/lib64/R/library/tm/tests/testthat/test-Source.R
+/usr/lib64/R/library/tm/tests/testthat/test-TermDocumentMatrix.R
+/usr/lib64/R/library/tm/tests/testthat/test-Tokenizer.R
+/usr/lib64/R/library/tm/tests/testthat/test-Transformation.R
 /usr/lib64/R/library/tm/texts/acq/reut-00001.xml
 /usr/lib64/R/library/tm/texts/acq/reut-00002.xml
 /usr/lib64/R/library/tm/texts/acq/reut-00003.xml
@@ -220,5 +222,3 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/tm/libs/tm.so
-/usr/lib64/R/library/tm/libs/tm.so.avx2
-/usr/lib64/R/library/tm/libs/tm.so.avx512
