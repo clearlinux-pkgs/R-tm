@@ -1,6 +1,7 @@
 0.7.6
 R-BH
 R-NLP
+R-Rcpp
 R-SnowballC
 R-cli
 R-rlang
