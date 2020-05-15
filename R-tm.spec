@@ -4,7 +4,7 @@
 #
 Name     : R-tm
 Version  : 0.7.7
-Release  : 33
+Release  : 34
 URL      : https://cran.r-project.org/src/contrib/tm_0.7-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/tm_0.7-7.tar.gz
 Summary  : Text Mining Package
@@ -38,21 +38,22 @@ lib components for the R-tm package.
 
 %prep
 %setup -q -c -n tm
+cd %{_builddir}/tm
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576534913
+export SOURCE_DATE_EPOCH=1589565307
 
 %install
-export SOURCE_DATE_EPOCH=1576534913
+export SOURCE_DATE_EPOCH=1589565307
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
