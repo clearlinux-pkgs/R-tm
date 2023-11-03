@@ -4,7 +4,7 @@
 #
 Name     : R-tm
 Version  : 0.7.11
-Release  : 60
+Release  : 61
 URL      : https://cran.r-project.org/src/contrib/tm_0.7-11.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/tm_0.7-11.tar.gz
 Summary  : Text Mining Package
